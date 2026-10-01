@@ -1,0 +1,138 @@
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+@import "tailwindcss";
+
+/*
+  Optional: real Satoshi font. See public/fonts/README.txt.
+
+  @font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/Satoshi-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Satoshi";
+    src: url("/fonts/Satoshi-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+  }
+*/
+
+@theme {
+  /* Colors from the Style Guide */
+  --color-blue-50: #e7f6ff;
+  --color-blue-100: #d3eeff;
+  --color-blue-200: #b0ddff;
+  --color-blue-300: #81c5ff;
+  --color-blue-400: #4f9dff;
+  --color-blue-500: #2872ff;
+  --color-blue-600: #0445ff;
+  --color-blue-700: #0043ff;
+  --color-blue-800: #003be2;
+  --color-blue-900: #0b36a4;
+  --color-blue-950: #071e5f;
+
+  --color-lime-50: #fdffe4;
+  --color-lime-100: #faffc5;
+  --color-lime-200: #f2ff92;
+  --color-lime-300: #e4ff54;
+  --color-lime-400: #d4fb20;
+  --color-lime-500: #cbfc01;
+  --color-lime-600: #8cb400;
+  --color-lime-700: #6a8902;
+  --color-lime-800: #546b09;
+  --color-lime-900: #465a0d;
+  --color-lime-950: #243300;
+
+  --color-neutral-50: #f5f5f6;
+  --color-neutral-100: #e5e6e8;
+  --color-neutral-200: #ced0d3;
+  --color-neutral-300: #abaeb5;
+  --color-neutral-400: #82868e;
+  --color-neutral-500: #666973;
+  --color-neutral-600: #585a62;
+  --color-neutral-700: #4b4c53;
+  --color-neutral-800: #424348;
+  --color-neutral-900: #3a3b3f;
+  --color-neutral-950: #242528;
+
+  /* Typography from the Style Guide */
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Satoshi", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --text-h-l: 72px;
+  --text-h-l--line-height: 1.2;
+  --text-h-m: 44px;
+  --text-h-m--line-height: 1.2;
+  --text-h-s: 36px;
+  --text-h-s--line-height: 1.2;
+  --text-h-xs: 20px;
+  --text-h-xs--line-height: 1.2;
+
+  --text-body-l: 18px;
+  --text-body-l--line-height: 1.6;
+  --text-body-m: 16px;
+  --text-body-m--line-height: 1.6;
+  --text-body-s: 14px;
+  --text-body-s--line-height: 1.6;
+  --text-body-xs: 12px;
+  --text-body-xs--line-height: 1.6;
+
+  --text-label-l: 18px;
+  --text-label-l--line-height: 1.2;
+  --text-label-m: 16px;
+  --text-label-m--line-height: 1.2;
+  --text-label-s: 14px;
+  --text-label-s--line-height: 1.2;
+  --text-label-xs: 12px;
+  --text-label-xs--line-height: 1.2;
+
+  --shadow-card: 0 12px 32px -8px rgb(36 37 40 / 0.16);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-neutral-950);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-blue-600);
+    outline-offset: 2px;
+  }
+  .on-blue :focus-visible {
+    outline-color: var(--color-lime-500);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* 120px grid lines on the blue sections (matches the 12-column grid) */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.11) 2px, transparent 2px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.11) 2px, transparent 2px);
+    background-size: 120px 120px;
+  }
+  .no-scrollbar { scrollbar-width: none; }
+}
